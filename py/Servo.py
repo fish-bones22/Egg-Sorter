@@ -8,25 +8,26 @@ class Servo:
     sleepInterval = 0.02
     frequency = 50
     __constFactor = 0.05556
+    resetValue = 0
 
 
-    def __init__ (self, pin):
+    def __init__ (self, pin, resetValue):
 
         self.pin = pin
         GPIO.setup(self.pin, GPIO.OUT)
         
         self.pwm = GPIO.PWM(self.pin, self.frequency)
 
-        self.pwm.start(0)
+        self.pwm.start(self.resetValue)
 
 
     def __del__(self):
-        self.rotate(0)
+        self.rotate(self.resetValue)
         self.pwm.stop()
 
 
     def reset(self):
-        self.rotate(0)
+        self.rotate(self.resetValue)
 
 
     def rotate(self, degree):
