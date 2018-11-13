@@ -21,6 +21,7 @@ class ImageParser:
             self.processImage()
             ratio = self.countPixels()
             self.exportImage(fileName)
+            print("Ratio:", ratio)
             return ratio
 
         except:
@@ -62,11 +63,12 @@ class ImageParser:
         total = self.width*self.height
         white = cv2.countNonZero(self.resultingImage)
 
-        return round(white/total*100, 2)
+        return white/total*100
 
     
     def exportImage(self, fileName):
                 
         filename = fileName.split("/")
         filename = "mod-"+filename[len(filename)-1]
+        print(filename, "exported")
         cv2.imwrite(filename, self.resultingImage)

@@ -49,10 +49,9 @@ def sort():
 
     if not imageName:
         return
-
-    # Check for dirtiness
+    
     ratio = parser.parseImage(imageName, config.dirtSensitivity)
-    print(ratio, "% of pixels are dark enough to be dirty. Threshold is", config.dirtThresh)
+
     if ratio >= config.dirtThresh:
         servoLaneLeft.rotate(config.returnAngle + config.laneAngle)
         servoLaneRight.rotate(config.returnAngle + config.laneAngle)
@@ -60,9 +59,8 @@ def sort():
         print("Egg is dirty.")
         return
 
-    # Check for rotteness
     ratio = parser.parseImage(imageName, config.rottenSensitivity)
-    print(ratio, "% of pixels are dark enough to be rotten. Threshold is", config.rottenThresh)
+
     if ratio >= config.rottenThresh:
         servoLaneLeft.rotate(config.returnAngle-config.laneAngle)
         servoLaneRight.rotate(config.returnAngle-config.laneAngle)
@@ -88,8 +86,8 @@ def reset():
 def main():
     try:
         init()
-        reset()
         sort()
+        reset()
     except KeyboardInterrupt:
         GPIO.cleanup()
         camera.close()

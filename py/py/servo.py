@@ -17,7 +17,7 @@ class Servo:
         GPIO.setup(self.pin, GPIO.OUT)
         
         self.pwm = GPIO.PWM(self.pin, self.frequency)
-        self.resetValue = resetValue
+
         self.pwm.start(self.resetValue)
 
 

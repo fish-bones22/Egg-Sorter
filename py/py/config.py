@@ -5,7 +5,7 @@ dirtSensitivity   = 10
 
 ## Threshold to which egg will be categorized
 rottenThresh = 75
-dirtThresh   = 20
+dirtThresh   = 75
 
 ## Pins - BCD Mode
 ## Refer to https://hackster.imgix.net/uploads/image/file/48843/RP2_Pinout.png?auto=compress%2Cformat&w=680&h=510&fit=max
