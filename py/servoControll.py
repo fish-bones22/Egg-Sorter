@@ -1,4 +1,4 @@
-from Servo import Servo
+from servo import Servo
 import RPi.GPIO as GPIO
 import time
 
@@ -19,3 +19,7 @@ try:
 except KeyboardInterrupt:
     servo.rotate(0)
     GPIO.cleanup()
+
+
+pushServo = 4
+laneServo1 = 
