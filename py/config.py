@@ -15,6 +15,9 @@ laneServoLeftPin    = 17
 laneServoRightPin   = 18
 startButtonPin      = 27
 
+# button pin
+buttonPin = 22
+
 ## Servo angles in degrees
 laneAngle = 45
 pushAngle = 90
